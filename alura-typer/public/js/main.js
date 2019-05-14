@@ -12,3 +12,16 @@ campo.on("input", function(){
   var qtdeCaracteres = conteudo.length;
   $("#qtdeCaracteres").text(qtdeCaracteres);
 });
+
+var tempoRestante = $("#tempoDigitacao").text();
+campo.on("focus",function(){
+  var cronometroID = setInterval(function(){
+    tempoRestante--;
+    //console.log(tempoRestante);
+    $("#tempoDigitacao").text(tempoRestante);
+    if (tempoRestante < 1) {
+      campo.attr("disabled",true);
+      clearInterval(cronometroID);
+    }
+  },1000);
+});
