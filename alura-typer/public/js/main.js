@@ -37,6 +37,7 @@ function inicializaCronometro(){
       if (tempoRestante < 1) {
         campo.attr("disabled",true);
         clearInterval(cronometroID);
+        campo.addClass("campoDesativado");
       }
     },1000);
   });
